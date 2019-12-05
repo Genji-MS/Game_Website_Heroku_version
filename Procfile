@@ -1,1 +1,1 @@
-web: gunicorn makewiki.wsgi --log-file -
+web: gunicorn game_website.wsgi --log-file -
