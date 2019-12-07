@@ -20,15 +20,18 @@
             content: none;
             display: none;
         }
+        .container .jumbotron{
+            padding: 2rem 1rem;
+            border-radius: 35px;
+        }
         .jumbotron {
-            background: rgba(22, 23, 34, 0.6);
+            background: rgba(22, 23, 34, 0.2);
             margin-top: 4cm;
-            padding: px;
         }
         body {
             font-family: "Neucha", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-size: auto 100%;
-            background-color: rgb(0, 0, 0);
+            background-color: rgb(216, 245, 233); 
             font-size: initial;
             line-height: 1.2;
             margin: 0px;
@@ -39,7 +42,7 @@
             padding: 0px;
         }
         div.spacer {
-            margin: 30px;
+            margin: -15px;
             margin-top: 4cm;
             padding: 0px;
         }
@@ -56,51 +59,107 @@
             transform: translate(-50%, 0);
         }
         .container1 {
-            background: url("{% static 'environments-and-corporations-1920.jpg' %}") no-repeat center center; 
+            text-shadow: 2px 2px 2px #000000;
+            background: url("{% static 'Home_bg.png' %}") no-repeat center center; 
             background-repeat: no-repeat;
-            background-color: #000; 
+            background-color: rgb(216, 245, 233); 
             background-size: contain;
             position: sticky;
-            width: 100vw;
             padding: px;
-            margin: 0px;
-            margin-left: -50vw;
-            margin-right: -50vw;
             min-width: 100%;
-            min-height: 1080px;
+            min-height: 800px;
+            max-height: 1000px;
             max-width: 100%;
         }
+        /* Default to hide the video on all devices */
+        #video{display:none}
+
+        /* Default to display the image on all devices */
+        #videosubstitute{display:block;width:auto;height:100%;}
+
+        #fullScreenDiv{
+            width:100%;
+            min-height: 100%; 
+           /* Set the height to match that of the viewport. */
+            height: 100vh;
+            width: 100%;
+            padding:0!important;
+            margin: 0!important;
+            position: relative;
+        }
+        #video{    
+            width: 100vw; 
+            height: auto;
+            object-fit: cover;
+            left: 0px;
+            top: 0px;
+            z-index: 1;
+        }
+
+        @media (min-aspect-ratio: 16/9) {
+          #video{
+            height: 150%;
+            top: -100%;
+          }
+          #videosubstitute{
+            display:cover;
+            width: 100%;
+            height: auto;}
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+          #video {
+            width: 150%;
+            left: -100%;
+          }
+          #videosubstitute{display:block;width:auto;height:100%;}
+        }
+        /*if there is 992  pixels or more, then display the video but hide the image*/
+        @media only screen and (min-width : 992px) {
+        #video{display:block;}
+        #videosubstitute{display:none}
+        }   
+                
+        /* The container for our text and stuff */
+        #messageBox{
+            position: absolute;  top: 0;  left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height:100%;
+        }
+        
         .container2 {
-            background-image: url("{% static 'environments-and-corporations-1920.jpg' %}");
+            text-shadow: 2px 2px 2px #000000;
             background-repeat: no-repeat;
-            background-color: #000 ; 
+            background-color: rgb(216, 245, 233);
             background-size: cover;
             background-attachment: scroll;
             position: initial;
             padding: px;
             margin: 0px;
-            width: 100vw;
-            margin-left: -50vw;
-            margin-right: -50vw;
             min-width: 100%;
-            min-height: 1080px;
+            min-height: 800px;
+            max-height: 1000px;
             max-width: 100%;
         }
+
         .container3 {
+            text-shadow: 2px 2px 2px #000000;
+            background-image: url("{% static 'Magic_bg.png' %}");
             background-repeat: no-repeat;
-            background-color: #000 ; 
-            background-size: cover;
-            background-attachment: scroll;
-            position: initial;
-            padding: px;
+            background-color: rgb(216, 245, 233);
+            background-size:cover;
+            background-attachment:fixed;
+            position:sticky;
             margin: 0px;
-            width: 100vw;
-            margin-left: -50vw;
-            margin-right: -50vw;
             min-width: 100%;
-            min-height: 1080px;
+            min-height: 100%;
+            max-height: 100%;
             max-width: 100%;
         }
+        
         .card {
             background: rgba(255, 255, 255, 1);
             padding: 10px;
@@ -115,7 +174,12 @@
     </style>
     <nav class="navbar navbar-light">
         <div class="container-fluid">
-        <a class="navbar-brand" href="#">Home</a>
+        <div class="pull-left" style="display: flex;">
+            <a class="navbar-brand" href="#Intro">Home</a>
+            <a class="navbar-brand" href="#Combat">Combat</a>
+            <a class="navbar-brand" href="#Magic">Magic</a>
+            <a class="navbar-brand" href="#Gallery">Gallery</a>
+        </div>
         <a class="brand"><img src="{% static 'Logo_outline_sm.png' %}"></a>
         <div class="pull-right" style="display: flex;">
             <a class="nav-item nav-link" href="#" style="color:rgb(129, 129, 129);">Mailing List</a>
@@ -124,7 +188,7 @@
         </div>
     </nav>
     <body>
-        <section class="Intro">
+        <section class="Intro"><a name="Intro"></a>
             <div class="container container1" style="margin: 0 auto;">
                 <br/><br/>
                 <div class="jumbotron">
@@ -132,7 +196,7 @@
                         <div class="col-2"></div>
                         <div class="col-6 justify-content-md-center">
                             <div class="row justify-content-md-center">
-                                <img src ="static/Logo_shiny_mid.png">
+                                <img src ="{% static 'Logo_shiny_mid.png' %}">
                             </div><div class="spacer row justify-content-md-center">
                                 <br/><br/>
                                 <p><h2><span class="text-info">'Let's play pretend!'</span></h2></p>
@@ -144,36 +208,46 @@
                 </div>
             </div>
         </section>
-        <section class="Combat">
+        <section class="Combat"><a name="Combat"></a>
             <div class="container container2" style="margin: 0 auto;">
-                <br/><br/>
-                <div class="jumbotron">
-                    <div class= "row justify-content-md-center">
-                        <div class="col-2"></div>
-                        <div class="col-6 justify-content-md-center">
-                            <div class="row justify-content-md-center">
-                                <img src ="static/Logo_shiny_mid.png">
-                            </div><div class="spacer row justify-content-md-center">
-                                <br/><br/>
-                                <p><h2><span class="text-warning">Find your own rhythm in combat</span></h2></p>
-                                <span class="text-light"><p>There is rhythm of movement, the tempo of swords, the dance of magic that all must work together.</p>
-                                <p>It is the rhythm of your song that must out do the beat of the enemy as they enter the fray to outpace and overwhelm you.</p></span>
+                <div id="fullScreenDiv">    
+                <img src="{% static 'Battle.jpg' %}" id="videosubstitute" alt="Full screen background video">
+                    <video preload="preload" id="video" autoplay="autoplay" loop="loop">
+                        <source src="{% static 'Battle.webm' %}" type="video/webm">
+                        <source src="{% static 'Battle.mp4' %}" type="video/mp4">
+                        <source src="{% static 'Battle.ogv' %}" type="video/ogg">
+                    </video> 
+                    <div id="messageBox">
+                        <br/><br/>
+                        <div class="jumbotron">                   
+                            <div class= "row justify-content-md-center">
+                                <div class="col-2"></div>
+                                <div class="col-6 justify-content-md-center">
+                                    <div class="row justify-content-md-center">
+                                        <img src ="{% static 'Combat_Txt.png' %}">
+                                    </div><div class="spacer row justify-content-md-center">
+                                        <br/><br/>
+                                        <p><h2><span class="text-warning">Find your own rhythm in combat</span></h2></p>
+                                        <span class="text-light"><p>There is rhythm of movement, the tempo of swords, the dance of magic that all must work together.</p>
+                                        <p>It is the rhythm of your song that must out do the beat of the enemy as they enter the fray to outpace and overwhelm you.</p></span>
+                                    </div>
+                                </div>
+                                <div class="col-2"></div>
                             </div>
                         </div>
-                        <div class="col-2"></div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="Magic">
-            <div class="container container2" style="margin: 0 auto;">
+        <section class="Magic"><a name="Magic"></a>
+            <div class="container container3" style="margin: 0 auto;">
                 <br/><br/>
                 <div class="jumbotron">
                     <div class= "row justify-content-md-center">
                         <div class="col-2"></div>
                         <div class="col-6 justify-content-md-center">
                             <div class="row justify-content-md-center">
-                                <img src ="static/Logo_shiny_mid.png">
+                                <img src ="{% static 'Magic_Txt.png' %}">
                             </div><div class="spacer row justify-content-md-center">
                                 <br/><br/>
                                 <p><h2><span class="text-success">Imaginary magic</span></h2></p>
@@ -181,17 +255,15 @@
                                 <span class="text-info"><p>❇ Healing Magic</span> <span class="text-light">Heals wounds, but doesn't clean up the mess</span></p>
                                 <span class="text-info"><p>❇ Fire Magic</span> <span class="text-light">Messy! But gets the job done</span></p>
                                 <span class="text-info"><p>❇ Lightning Magic</span> <span class="text-light">Spans across grouped enemies</span></p>
-                                <span class="text-info"><p>❇ Dark Magic</span> <span class="text-light">Costly, but perfect for humans</span></p>
+                                <span class="text-info"><p>❇ Dark Magic</span> <span class="text-light">Costly, but perfect against humans</span></p>
                             </div>
                         </div>
                         <div class="col-2"></div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="Gallery">
-            <div class="container container3" style="margin: 0 auto;">
-                    
+            
+                <a name="Gallery"></a>
+                <br/><br/><br/>
                 <div class= "row justify-content-md-center">     
 
                     <div class="col-6 justify-content-md-center">

@@ -25,7 +25,7 @@ SECRET_KEY = 'uvu^0(!7k_^dp70a&$%xv2smz=hb7#-6ul4-w$q_4=dq@3eprs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'gt-imaginary-friends.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'gt-imaginary-friends.herokuapp.com']
 
 
 # Application definition
