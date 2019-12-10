@@ -1,0 +1,385 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>can Elis come outside to play</title>
+        <!-- Latest compiled and minified CSS-->
+        <!--
+        -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> 
+        <link rel='stylesheet' type="text/css" href='https://bootswatch.com/4/sketchy/bootstrap.css'>
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    </head>
+    <style>
+        .slider-block{
+        	height:350px;
+        	display:inline-block;
+        }
+        #carousel {
+        	height:100%;
+        }
+        #carousel .carousel-inner{
+        	height:100%;
+        }
+        #carousel .item{
+        	background-repeat:no-repeat;
+        	background-size:cover;
+        	background-position:center center;
+        	width:100%;
+        	height:100%;
+        }
+        .carousel-indicators li{
+            transition: opacity 0.5s ease;
+        }
+        .clearfix:before, .clearfix:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical>.btn-group:before, .btn-group-vertical>.btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after {
+            content: none;
+            display: none;
+        }
+        .container .jumbotron{
+            padding: 2rem 1rem;
+            border-radius: 35px;
+        }
+        .jumbotron {
+            background: rgba(22, 23, 34, 0.2);
+            background: url("{% static 'Decor.png' %}") no-repeat center center; 
+            -webkit-background-size: 100% 100%;
+            -moz-background-size: 100% 100%;
+            -o-background-size: 100% 100%;
+            background-size: 100% 100%;
+            margin-top: 4cm;
+        }
+        .jumbocombat {
+            margin-top: 0cm;
+        }
+        .jumbomagic {
+            margin-top: 2cm;
+        }
+        body {
+            font-family: "Neucha", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-size: auto 100%;
+            background-color: rgb(216, 245, 233); 
+            font-size: initial;
+            line-height: 1.2;
+            margin: 0px;
+            padding: 0px;
+        }
+        div {
+            margin: 0px;
+            padding: 0px;
+        }
+        div.spacer {
+            margin: -15px;
+            margin-top: 4cm;
+            padding: 0px;
+        }
+        .navbar {
+            padding: .6rem;
+            background-color: whitesmoke;
+            position: fixed;
+            width: 100%;
+            z-index: 1030;
+        }
+        .brand {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+        .container1 {
+            text-shadow: 2px 2px 2px #000000;
+            background: url("{% static 'Home_bg.png' %}") no-repeat center center; 
+            background-repeat: no-repeat;
+            background-color: rgb(216, 245, 233); 
+            background-size: contain;
+            position: sticky;
+            padding: px;
+            min-width: 100%;
+            min-height: 800px;
+            max-height: 1000px;
+            max-width: 100%;
+        }
+
+        #fullScreenDiv{
+            width:100%;
+            min-height: 100%; 
+           /* Set the height to match that of the viewport. */
+            height: 600px;
+            width: 100%;
+            padding:0!important;
+            margin: 0!important;
+            position: relative;
+        }
+    
+        /* The container for our text and stuff */
+        #messageBox{
+            position: absolute;  top: 0;  left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height:100%;
+        }
+        
+        .container2 {
+            text-shadow: 2px 2px 2px #000000;
+            background-color: rgb(216, 245, 233);
+            min-width: 100%;
+            max-width: 100%;
+        }
+
+        .container3 {
+            text-shadow: 2px 2px 2px #000000;
+            background-image: url("{% static 'Magic_bg.png' %}");
+            background-repeat: no-repeat;
+            background-color: rgb(216, 245, 233);
+            background-size:cover;
+            background-attachment:fixed;
+            position:sticky;
+            margin: 0px;
+            min-width: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            max-width: 100%;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 1);
+            padding: 10px;
+            margin: 20px;
+        }
+        .modal-dialog .modal-content .modal{
+            z-index: 1050;
+            max-height: 10%;
+            overflow:scroll;
+            overflow-block: scroll;
+        }
+    </style>
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+        <div class="pull-left" style="display: flex;">
+            <a class="navbar-brand" href="#Intro">Home</a>
+            <a class="navbar-brand" href="#Combat">Combat</a>
+            <a class="navbar-brand" href="#Magic">Magic</a>
+            <a class="navbar-brand" href="#Gallery">Gallery</a>
+        </div>
+        <a class="brand"><img src="{% static 'Logo_outline_sm.png' %}"></a>
+        <div class="pull-right" style="display: flex;">
+            <a class="nav-item nav-link" href="#" style="color:rgb(129, 129, 129);">Mailing List</a>
+            <a class="nav-item nav-link" href="#" style="color:rgb(129, 129, 129);">Features</a>
+        </div>
+        </div>
+    </nav>
+    <body>
+        <section class="Intro"><a name="Intro"></a>
+            <div class="container container1" style="margin: 0 auto;">
+                <br/><br/><br/><br/><br/><br/>
+                <div class="jumbotron">
+                    <div class= "row justify-content-md-center length">
+                        <div class="col-2"></div>
+                        <div class="col-6 justify-content-md-center">
+                            <div class="row justify-content-md-center">
+                                <img src ="{% static 'Logo_shiny_mid.png' %}">
+                            </div><div class="spacer row justify-content-md-center">
+                                <br/><br/>
+                                <p><h2><span class="text-info">'Let's play pretend!'</span></h2></p>
+                                <p><span class="text-light">Follow Shin and Albin as they explore the furthest reaches of their peaceful island with their best friend, Elis. Armed with only their imagination, they take on the roles of Mage, Warrior, and Healer to do battle against invaders to their peaceful way of life</span></p>
+                            </div>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="Combat"><a name="Combat"></a>
+            <div class="container container2" style="margin: 0 auto;">
+                <div id="fullScreenDiv">    
+                    <script>
+                        $('#carousel .item img').each(function() {
+                            var imgSrc = $(this).attr('src');
+                            $(this).parent().css({'background-image': 'url('+imgSrc+')'});
+                            $(this).remove();
+                        });       
+                    </script> 
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="d-block w-100" src="{% static 'Battle-1.png' %}" alt="First slide">
+                            </div>
+                            <div class="item">
+                                <img class="d-block w-100" src="{% static 'Battle-2.png' %}" alt="Second slide">
+                            </div>
+                            <div class="item">
+                                <img class="d-block w-100" src="{% static 'Battle-3.png' %}" alt="Third slide">
+                            </div>
+                            <div class="item">
+                                <img class="d-block w-100" src="{% static 'Battle-4.png' %}" alt="Third slide">
+                            </div>
+                            <div class="item">
+                                <img class="d-block w-100" src="{% static 'Battle-5.png' %}" alt="Third slide">
+                            </div>
+                            <div class="item">
+                                <img class="d-block w-100" src="{% static 'Battle-6.png' %}" alt="Third slide">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="messageBox">
+                        <div class="jumbotron jumbocombat">                   
+                            <div class= "row justify-content-md-center">
+                                <div class="col-2"></div>
+                                <div class="col-6 justify-content-md-center">
+                                    <div class="row justify-content-md-center">
+                                        <img src ="{% static 'Combat_Txt.png' %}">
+                                    </div><div class="spacer row justify-content-md-center">
+                                        <br/><br/>
+                                        <p><h2><span class="text-warning">Find your own rhythm in combat</span></h2></p>
+                                        <span class="text-light"><p>There is rhythm of movement, the tempo of swords, the dance of magic that all must work together.</p>
+                                        <p>It is the rhythm of your song that must out do the beat of the enemy as they enter the fray to outpace and overwhelm you.</p></span>
+                                    </div>
+                                </div>
+                                <div class="col-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="Magic"><a name="Magic"></a>
+            <div class="container container3" style="margin: 0 auto;">
+                <br/><br/>
+                <div class="jumbotron jumbomagic">
+                    <div class= "row justify-content-md-center">
+                        <div class="col-2"></div>
+                        <div class="col-6 justify-content-md-center">
+                            <div class="row justify-content-md-center">
+                                <img src ="{% static 'Magic_Txt.png' %}">
+                            </div><div class="spacer row justify-content-md-center">
+                                <br/><br/>
+                                <p><h2><span class="text-success">Imaginary magic</span></h2></p>
+                                <span class="text-info"><p>❇ Light Magic</span> <span class="text-light">Humans are holy, this magic is for monsters</span></p>
+                                <span class="text-info"><p>❇ Healing Magic</span> <span class="text-light">Heals wounds, but doesn't clean up the mess</span></p>
+                                <span class="text-info"><p>❇ Fire Magic</span> <span class="text-light">Messy! But gets the job done</span></p>
+                                <span class="text-info"><p>❇ Lightning Magic</span> <span class="text-light">Spans across grouped enemies</span></p>
+                                <span class="text-info"><p>❇ Dark Magic</span> <span class="text-light">Costly, but perfect against humans</span></p>
+                            </div>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                </div>
+            
+                <a name="Gallery"></a>
+                <br/><br/><br/>
+                <div class= "row justify-content-md-center">     
+
+                    <div class="col-6 justify-content-md-center">
+                        <div class="card border-info mb-5" >
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#mod_img1">
+                            <img class="card-img" src="{% static 'Albin_trim.png' %}" alt="Card image">
+                            <div class="card-footer">Albin</div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-6 justify-content-md-center">
+                        <div class="card border-info mb-5">
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#mod_img2">
+                            <img class="card-img" src="{% static 'Elis_trim.png' %}" alt="Card image">
+                            <div class="card-footer">Elis</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class= "row justify-content-md-center">
+                    <div class="col-6 justify-content-md-center">
+                        <div class="card border-info mb-5" >
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#mod_img3">
+                            <img class="card-img" src="{% static 'Time_trim.png' %}" alt="Card image">
+                            <div class="card-footer">Time</div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-6 justify-content-md-center">
+                        <div class="card border-info mb-5" >
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#mod_img4">
+                            <img class="card-img" src="{% static 'Shin_trim.png' %}" alt="Card image">
+                            <div class="card-footer">Shin</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMG1 -->
+        <div id="mod_img1" class="modal fade" role="img">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <img src="{% static 'Albin_full.png' %}">
+            <div class="modal-title"></div>
+            <br/>
+            <p class="col-12 text-center">The warrior who fights with his sword. He's very neat and likes to keep his pristine white clothing clean as a show of his skill.</p>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- IMG2 -->
+        <div id="mod_img2" class="modal fade" role="img">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <img src="{% static 'Elis_full.png' %}">
+            <div class="modal-title"></div>
+            <br/>
+            <p class="col-12 text-center">The holy magic healer. She can cast holy magic and heal. She can only heal others, and must defend herself from direct attacks.</p>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- IMG1 -->
+        <div id="mod_img3" class="modal fade" role="img">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <img src="{% static 'Time_full.png' %}">
+            <div class="modal-title"></div>
+            <br/>
+            <p class="col-12 text-center">The teacher known as Father Time. If time is rhythm, and rhythm means victory, lets learn from the master of time himself.</p>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- IMG4 -->
+        <div id="mod_img4" class="modal fade" role="img">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <img src="{% static 'Shin_full.png' %}">
+            <div class="modal-title"></div>
+            <br/>
+            <p class="col-12 text-center">The elemental magician. Fights with spells that can be used to directly attack the enemy, or temporarily enchant Albin's sword</p>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>     
+        </div>
+        </div>
+
+    </body>
+</html>
+            
