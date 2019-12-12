@@ -43,14 +43,22 @@
             padding: 2rem 1rem;
             border-radius: 35px;
         }
-        .jumbotron {
-            background: rgba(22, 23, 34, 0.2);
-            background: url("{% static 'Decor.png' %}") no-repeat center center; 
+        .jumbotron {           
+            background: rgba(22, 23, 34, 0.3);
+        }
+        .jumbobg {
+            background: url("{% static 'Deco2r.png' %}") no-repeat center center; 
             -webkit-background-size: 100% 100%;
             -moz-background-size: 100% 100%;
             -o-background-size: 100% 100%;
             background-size: 100% 100%;
             margin-top: 4cm;
+        }
+        .jumbotron-fluid {
+            padding: 0rem 0rem;
+        }
+        .border {
+            border: 0px !important;
         }
         .jumbocombat {
             margin-top: 0cm;
@@ -89,7 +97,7 @@
             transform: translate(-50%, 0);
         }
         .container1 {
-            text-shadow: 2px 2px 2px #000000;
+            text-shadow: 0px -2px 3px #000000;
             background: url("{% static 'Home_bg.png' %}") no-repeat center center; 
             background-repeat: no-repeat;
             background-color: rgb(216, 245, 233); 
@@ -124,14 +132,14 @@
         }
         
         .container2 {
-            text-shadow: 2px 2px 2px #000000;
+            text-shadow: 0px -2px 3px #000000;
             background-color: rgb(216, 245, 233);
             min-width: 100%;
             max-width: 100%;
         }
 
         .container3 {
-            text-shadow: 2px 2px 2px #000000;
+            text-shadow: 0px -2px 3px #000000;
             background-image: url("{% static 'Magic_bg.png' %}");
             background-repeat: no-repeat;
             background-color: rgb(216, 245, 233);
@@ -167,16 +175,16 @@
         </div>
         <a class="brand"><img src="{% static 'Logo_outline_sm.png' %}"></a>
         <div class="pull-right" style="display: flex;">
-            <a class="nav-item nav-link" href="#" style="color:rgb(129, 129, 129);">Mailing List</a>
-            <a class="nav-item nav-link" href="#" style="color:rgb(129, 129, 129);">Features</a>
+            <a class="nav-item nav-link" href="/^survey/2" style="color:rgb(129, 129, 129);">Mailing List</a>
+            <a class="nav-item nav-link" href="/^survey/1" style="color:rgb(129, 129, 129);">Survey</a>
         </div>
         </div>
     </nav>
     <body>
         <section class="Intro"><a name="Intro"></a>
-            <div class="container container1" style="margin: 0 auto;">
+            <div class="container container1 border" style="margin: 0 auto;">
                 <br/><br/><br/><br/><br/><br/>
-                <div class="jumbotron">
+                <div class="jumbotron border jumbobg">
                     <div class= "row justify-content-md-center length">
                         <div class="col-2"></div>
                         <div class="col-6 justify-content-md-center">
@@ -184,8 +192,10 @@
                                 <img src ="{% static 'Logo_shiny_mid.png' %}">
                             </div><div class="spacer row justify-content-md-center">
                                 <br/><br/>
-                                <p><h2><span class="text-info">'Let's play pretend!'</span></h2></p>
-                                <p><span class="text-light">Follow Shin and Albin as they explore the furthest reaches of their peaceful island with their best friend, Elis. Armed with only their imagination, they take on the roles of Mage, Warrior, and Healer to do battle against invaders to their peaceful way of life</span></p>
+                                <div class="jumbotron jumbotron-fluid ">
+                                    <p><h2><span class="text-info">'Let's play pretend!'</span></h2></p>
+                                    <p><span class="text-light">Follow Shin and Albin as they explore the furthest reaches of their peaceful island with their best friend, Elis. Armed with only their imagination, they take on the roles of Mage, Warrior, and Healer to do battle against invaders to their peaceful way of life</span></p>
+                                </div>
                             </div>
                         </div>
                         <div class="col-2"></div>
@@ -194,7 +204,7 @@
             </div>
         </section>
         <section class="Combat"><a name="Combat"></a>
-            <div class="container container2" style="margin: 0 auto;">
+            <div class="container container2 border" style="margin: 0 auto;">
                 <div id="fullScreenDiv">    
                     <script>
                         $('#carousel .item img').each(function() {
@@ -234,7 +244,7 @@
                         </div>
                     </div>
                     <div id="messageBox">
-                        <div class="jumbotron jumbocombat">                   
+                        <div class="jumbotron border jumbocombat jumbobg">                   
                             <div class= "row justify-content-md-center">
                                 <div class="col-2"></div>
                                 <div class="col-6 justify-content-md-center">
@@ -242,9 +252,11 @@
                                         <img src ="{% static 'Combat_Txt.png' %}">
                                     </div><div class="spacer row justify-content-md-center">
                                         <br/><br/>
-                                        <p><h2><span class="text-warning">Find your own rhythm in combat</span></h2></p>
-                                        <span class="text-light"><p>There is rhythm of movement, the tempo of swords, the dance of magic that all must work together.</p>
-                                        <p>It is the rhythm of your song that must out do the beat of the enemy as they enter the fray to outpace and overwhelm you.</p></span>
+                                        <div class="jumbotron jumbotron-fluid ">
+                                            <p><h2><span class="text-warning">Find your own rhythm in combat</span></h2></p>
+                                            <span class="text-light"><p>There is rhythm of movement, the tempo of swords, the dance of magic that all must work together.</p>
+                                            <p>It is the rhythm of your song that must out do the beat of the enemy as they enter the fray to outpace and overwhelm you.</p></span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-2"></div>
@@ -257,7 +269,7 @@
         <section class="Magic"><a name="Magic"></a>
             <div class="container container3" style="margin: 0 auto;">
                 <br/><br/>
-                <div class="jumbotron jumbomagic">
+                <div class="jumbotron border jumbomagic jumbobg">
                     <div class= "row justify-content-md-center">
                         <div class="col-2"></div>
                         <div class="col-6 justify-content-md-center">
@@ -265,12 +277,14 @@
                                 <img src ="{% static 'Magic_Txt.png' %}">
                             </div><div class="spacer row justify-content-md-center">
                                 <br/><br/>
-                                <p><h2><span class="text-success">Imaginary magic</span></h2></p>
-                                <span class="text-info"><p>❇ Light Magic</span> <span class="text-light">Humans are holy, this magic is for monsters</span></p>
-                                <span class="text-info"><p>❇ Healing Magic</span> <span class="text-light">Heals wounds, but doesn't clean up the mess</span></p>
-                                <span class="text-info"><p>❇ Fire Magic</span> <span class="text-light">Messy! But gets the job done</span></p>
-                                <span class="text-info"><p>❇ Lightning Magic</span> <span class="text-light">Spans across grouped enemies</span></p>
-                                <span class="text-info"><p>❇ Dark Magic</span> <span class="text-light">Costly, but perfect against humans</span></p>
+                                <div class="jumbotron jumbotron-fluid ">
+                                    <p><h2><span class="text-success">Imaginary magic</span></h2></p>
+                                    <span class="text-info"><p>❇ Light Magic</span> <span class="text-light">Humans are holy, this magic is for monsters</span></p>
+                                    <span class="text-info"><p>❇ Healing Magic</span> <span class="text-light">Heals wounds, but doesn't clean up the mess</span></p>
+                                    <span class="text-info"><p>❇ Fire Magic</span> <span class="text-light">Messy! But gets the job done</span></p>
+                                    <span class="text-info"><p>❇ Lightning Magic</span> <span class="text-light">Spans across grouped enemies</span></p>
+                                    <span class="text-info"><p>❇ Dark Magic</span> <span class="text-light">Costly, but perfect against humans</span></p>
+                                </div>
                             </div>
                         </div>
                         <div class="col-2"></div>

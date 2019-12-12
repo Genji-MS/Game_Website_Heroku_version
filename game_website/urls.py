@@ -27,8 +27,13 @@ urlpatterns = [
     path('', views.index, name='index'),
 
     #survey
-    #path('survey/', include('feedback_form.urls')),
+    #path('survey/', SurveyForm),
     
     #mailing list
    
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+if 'survey' in settings.INSTALLED_APPS:
+    urlpatterns += [
+        path(r'^survey/', include('survey.urls'))
+    ]

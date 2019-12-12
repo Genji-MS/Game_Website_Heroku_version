@@ -1,0 +1,14 @@
+<html><head></head><body>
+        Doctor: {{ evaluation.doctor }} <br>
+        Agency: {{ evaluation.agency }}
+        <form method="POST">
+          {{ formset.management_form }}
+          <table>
+            {% for form in formset.forms %}
+              <tr><th colspan="2">{{ form.instance.question }}</th></tr>
+              {{ form }}
+            {% endfor %}
+          </table>
+          <input type="submit">
+        </form>
+      </body></html>

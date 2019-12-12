@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     'feedback_form.apps.FeedbackFormConfig',
 ]
 
+INSTALLED_APPS += [
+	'bootstrapform',
+	'survey'
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

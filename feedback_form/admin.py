@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Question_txt, MultipleChoice, InformationField, IntegerRangeField
+'''from .models import Question_txt, MultipleChoice, InformationField
 
 # Register your models here.
 
@@ -18,5 +18,4 @@ class QuestionAdmin(admin.ModelAdmin):
 
 admin.site.register(Question_txt, QuestionAdmin)
 admin.site.register(MultipleChoice)
-admin.site.register(InformationField)
-admin.site.register(IntegerRangeField)
+admin.site.register(InformationField)'''
