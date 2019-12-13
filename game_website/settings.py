@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'feedback_form.apps.FeedbackFormConfig',
+
+    'accounts',
 ]
 
 INSTALLED_APPS += [
@@ -73,6 +74,8 @@ TEMPLATES = [
         },
     },
 ]
+
+CHOICES_SEPARATOR = ","
 
 WSGI_APPLICATION = 'game_website.wsgi.application'
 
@@ -121,6 +124,11 @@ USE_L10N = True
 USE_THOUSAND_SEPARATOR = True
 
 USE_TZ = True
+
+
+# Where to redirect during authentication
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

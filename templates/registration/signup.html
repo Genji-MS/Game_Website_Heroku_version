@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>can Elis come outside to play</title>
+      </head>
+      <body>
+<h3>Sign Up <small class="text-muted">to access our survey</small></h3>
+  <hr>
+      <div class="row">
+        <div class="col">
+          <form method="post" class="mx-auto">
+            {% csrf_token %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                {% endfor %}
+                <div class="form-group row">
+                    <div class="col-8">
+                      <label for="id_{{ field.name }}">{{ field.label|title }}:</label>
+                      <input class="form-control" type="{% if "password" in field.name %}password{% else %}text{% endif %}" name="{{ field.name }}" id="id_{{ field.name }}" required>
+                    </div>
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-success">Sign up</button>
+          </form>
+        </div>
+      </div>
+    </body>
+    </html>

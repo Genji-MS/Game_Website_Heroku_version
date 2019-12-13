@@ -1,0 +1,33 @@
+# Can Elis come outside to play
+![Logo of the project](https://raw.githubusercontent.com/static/Logo_outline.png)
+
+A website designed as a landing page for people to learn about the game. And if they've played the demo, to take a brief survey and leave feedback.
+
+## What's inside:
+
+- django-survey-and-report 
+  https://github.com/Pierre-Sassoulas/django-survey
+  (A django survey app, based on and compatible with "django-survey".)
+
+- Django 2.2.7
+  runs the database backend and serves the webpages
+
+- bootstrap
+  Page styling & Image carosel
+
+- The Artwork included in this repo is not licencesed for your use and has no CC attribution.
+  Artist contact:
+  https://www.deviantart.com/xzethanyx
+
+  Unity scenery:
+  https://assetstore.unity.com/packages/3d/vegetation/trees/polygon-nature-pack-120152
+
+### Demo:
+
+- https://gt-imaginary-friends.herokuapp.com
+
+### Notes:
+
+- Survey requires a valid login
+- Webpage is ideal for view via a smaller (tablet) window and not optomized for wide (laptop/desktop full screen) or narrow (mobile) screens.
+- The webpage was designed to display video (found in the (static foler). The broken code is in the index.html file

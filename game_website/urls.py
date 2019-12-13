@@ -26,14 +26,13 @@ urlpatterns = [
     #website default
     path('', views.index, name='index'),
 
-    #survey
-    #path('survey/', SurveyForm),
-    
-    #mailing list
-   
+    #users
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if 'survey' in settings.INSTALLED_APPS:
     urlpatterns += [
-        path(r'^survey/', include('survey.urls'))
+        path('survey/', include('survey.urls'))
     ]
