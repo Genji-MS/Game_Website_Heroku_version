@@ -13,7 +13,7 @@ A website designed as a landing page for people to learn about the game. And if 
 
 - Django 2.2.7
 
-  runs the database backend and serves the webpages
+  runs the database backend and serves the webpages and the accounts app for user registration / sign-in
 
 - bootstrap
 
