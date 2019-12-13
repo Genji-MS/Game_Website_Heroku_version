@@ -1,5 +1,5 @@
 # Can Elis come outside to play
-![Logo of the project](https://github.com/Genji-MS/Game_Website_Heroku_version/blob/master/static/Logo_outline.png)
+![Logo of the project](https://github.com/Genji-MS/Game_Website_Heroku_version/blob/master/static/Logo_shiny_mid.png)
 
 A website designed as a landing page for people to learn about the game. And if they've played the demo, to take a brief survey and leave feedback.
 
